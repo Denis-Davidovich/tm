@@ -1,0 +1,35 @@
+{
+  "name": "tm",
+  "version": "1.0.0",
+  "description": "Менеджер управления задачами",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-appcache": "^0.2.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-compress": "^1.2.0",
+    "grunt-contrib-concat": "^1.0.0",
+    "grunt-contrib-connect": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-exec": "^0.4.6",
+    "grunt-processhtml": "^0.3.13",
+    "grunt-requirejs": "^0.4.2",
+    "http-server": "^0.9.0",
+    "load-grunt-tasks": "^3.4.1"
+  },
+  "scripts": {
+    "start": "http-server -a 0.0.0.0 -p 8000"
+  },
+  "folders": {
+    "build": "target/",
+    "wwwRoot": "app/",
+    "jsSource": "app/modules/",
+    "externalLibs": "app/external-libs/"
+  },
+  "author": "Denis.Davidovich <davidovich.denis@gmail.com>",
+  "license": "MIT"
+}

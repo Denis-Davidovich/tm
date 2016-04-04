@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Менеджер задач</title>
+    <!-- build:css style.css -->
+    <link rel="stylesheet" href="../bower_components/material-design-lite/material.min.css">
+    <!-- /build-->
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header mdl-layout__header-row">
+        <span class="mdl-layout-title">Менеджер задач</span>
+    </header>
+    <main class="mdl-layout__content" ng-controller="TaskController">
+        <div class="page-content">
+            <form novalidate>
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <input type="text" id="add" placeholder="Добавить задачу" class="mdl-textfield__input form-control" ng-model="task.name" required />
+                    </div>
+                    <div class="mdl-cell mdl-cell--1-col">
+                        <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="add(task)">
+                            <i class="material-icons">add</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col">
+                    <table>
+                        <tbody>
+                            <tr ng-repeat="task in tasks | filter:{status:0}">
+                                <td>{{task.name}}</td>
+                                <td>
+                                    <select ng-model="task.status" ng-change="change(task)">
+                                        <option ng-repeat="option in statuses" value="{{option.value}}">{{option.text}}</option>
+                                    </select>
+                                    <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="del(task)">
+                                        <i class="material-icons">delete</i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col">
+                    <table>
+                        <tbody>
+                            <tr ng-repeat="task in tasks | filter:{status:1}">
+                                <td>{{task.name}}</td>
+                                <td>
+                                    <select ng-model="task.status" ng-change="change(task)">
+                                        <option ng-repeat="option in statuses" value="{{option.value}}">{{option.text}}</option>
+                                    </select>
+                                    <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="del(task)">
+                                        <i class="material-icons">delete</i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col">
+                    <table>
+                      <tbody>
+                        <tr ng-repeat="task in tasks | filter:{status:2}">
+                            <td>{{task.name}}</td>
+                            <td>
+                                <select ng-model="task.status" ng-change="change(task)">
+                                    <option ng-repeat="option in statuses" value="{{option.value}}">{{option.text}}</option>
+                                </select>
+                                <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="del(task)">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- build:js modules/main.js -->
+<script src="http://localhost:35729/livereload.js"></script>
+<script src="../bower_components/requirejs/require.js" data-main="modules/main"></script>
+<!-- /build -->
+</body>
+</html>
